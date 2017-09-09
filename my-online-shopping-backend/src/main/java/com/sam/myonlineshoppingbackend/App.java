@@ -1,4 +1,4 @@
-package com.sam.my_online_shopping_backend;
+package com.sam.myonlineshoppingbackend;
 
 /**
  * Hello world!

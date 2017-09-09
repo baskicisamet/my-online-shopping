@@ -15,6 +15,14 @@
 
 	<dependencies>
 
+
+		<!-- Link Backend project -->
+		<dependency>
+			<groupId>com.sam</groupId>
+			<artifactId>my-online-shopping-backend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- JAVA EE API -->
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
@@ -41,8 +49,8 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-			<!-- JSTL -->
+
+		<!-- JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
