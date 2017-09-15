@@ -7,30 +7,40 @@
 <spring:url var="js" value="/resources/js" />
 <spring:url var="images" value="/resources/images" />
 
+<c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>Online shopping - ${title}</title>
 
-<title>Online shopping - ${title}</title>
+	<script type="text/javascript">
+		window.menu = '${title}'; //javascript hangi sayfada oldugumuzu bu degisken uzerinden alicak(actve menu icin)
+		window.contextRoot = '${contextRoot}';
+	</script>
 
-<script type="text/javascript">
-	window.menu = '${title}'; //javascript hangi sayfada oldugumuzu bu degisken uzerinden alicak(actve menu icin)
-</script>
-
-<!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap Theme CSS -->
-<%-- <link href="${css}/bootstrap-yeti-theme.css" rel="stylesheet"> --%>
-
-<!-- Custom styles for this template -->
-<link href="${css}/myapp.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="${css}/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Bootstrap Theme CSS -->
+	<%-- <link href="${css}/bootstrap-yeti-theme.css" rel="stylesheet"> --%>
+	
+	<!-- Bootstrap DataTable CSS -->
+	<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+	
+	<!--  for icons  -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	
+	<!-- Custom styles for this template -->
+	<link href="${css}/myapp.css" rel="stylesheet">
 
 </head>
 
@@ -63,6 +73,11 @@
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			<!-- load single Product -->
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 
 
 		</div>
@@ -75,8 +90,17 @@
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.min.js"></script>
+		
+		<!-- DataTable plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		
+		<!-- DataTable Bootstrap  Script  -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		
+		
 
-		<!-- Self coded jacascript  -->
+		<!-- Self coded javascript  -->
 		<script src="${js}/myapp.js"></script>
 
 

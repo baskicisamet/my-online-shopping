@@ -63,7 +63,19 @@
 			<version>2.1.1</version>
 		</dependency>
 		
-	
+		<!-- JACKSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		<!-- version of the annatations dependency which inside jackson databind is old that's why we add this dependent separately-->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
 		
 		
 		

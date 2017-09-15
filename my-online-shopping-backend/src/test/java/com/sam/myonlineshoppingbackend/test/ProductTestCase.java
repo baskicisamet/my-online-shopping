@@ -29,7 +29,7 @@ public class ProductTestCase {
 //		@Test
 //		public void testCRUDProduct() {
 //			
-//			//Create Operation
+			//Create Operation
 //			product = new Product();
 //			
 //			product.setName("oppo selfie S53");
@@ -41,14 +41,14 @@ public class ProductTestCase {
 //			product.setSupplierId(3);
 //			
 //			assertEquals("Someting went wrong while inserting a new product.",true,productDAO.add(product));
-//			
-//			
+		
+			
 //			//reading and updating product
-//			product = productDAO.get(2);
+//			product = productDAO.get(33);
 //			product.setName("Samsung Galaxy S7");
 //			assertEquals("Somting went wrong while updating the existing record",true,productDAO.update(product));
 //			
-//			//delete
+			//delete
 //			assertEquals("Somting went wrong while updating the existing record",true,productDAO.delete(product));
 //			
 //			//list
@@ -65,15 +65,15 @@ public class ProductTestCase {
 //	}
 	
 	
-	@Test
-	public void testListActiveProductsByCategory() {
-		assertEquals("Somting went wrong while fetching the existing active records by category",3,productDAO.listActiveProductsByCategory(3).size());  
-	}
-	
-	@Test
-	public void testGetLatestActiveProducts() {
-		assertEquals("Somting went wrong while fetching latest active products",3,productDAO.getLatestActiveProducts(3).size());  
-	}
+//	@Test
+//	public void testListActiveProductsByCategory() {
+//		assertEquals("Somting went wrong while fetching the existing active records by category",3,productDAO.listActiveProductsByCategory(3).size());  
+//	}
+//	
+//	@Test
+//	public void testGetLatestActiveProducts() {
+//		assertEquals("Somting went wrong while fetching latest active products",3,productDAO.getLatestActiveProducts(3).size());  
+//	}
 		
 		
 		 
