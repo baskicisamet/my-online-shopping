@@ -70,15 +70,33 @@ $(function(){
 					}
 				},
 				{
-					data: 'quantity'
-				},{
+					data: 'quantity',
+					mRender:function(data, type, row){
+						
+						if(data < 1){
+							 return '<span style="color:red">Out of Stock!</span>';
+						}
+						
+						return data; 
+						
+					}
+				},
+				{
 					data: 'id',
 					bSortable:false,
 					mRender:function(data,type,row){
 						
 						var str = '';
 						str += '<a href="' + window.contextRoot+ '/show/' + data + '/product" class="btn btn-primary"><i class="fa fa-opencart" aria-hidden="true"></i></a> &#160';
-						str += '<a href="' + window.contextRoot+ '/cart/add/' + data + '/product" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>'; 
+						
+						if(row.quantity < 1){
+							str += '<a href="javascript:void(0)" class="btn btn-success disabled"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>'; 
+						}else{
+							str += '<a href="' + window.contextRoot+ '/cart/add/' + data + '/product" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>';  
+							 
+						}
+						
+						
 						return str;
 						
 						
