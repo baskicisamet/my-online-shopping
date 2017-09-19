@@ -29,6 +29,7 @@
 	<!-- Bootstrap core CSS -->
 	<link href="${css}/bootstrap.min.css" rel="stylesheet">
 	
+	
 	<!-- Bootstrap Theme CSS -->
 	<%-- <link href="${css}/bootstrap-yeti-theme.css" rel="stylesheet"> --%>
 	
@@ -41,6 +42,9 @@
 	
 	<!-- Custom styles for this template -->
 	<link href="${css}/myapp.css" rel="stylesheet">
+	
+	
+	
 
 </head>
 
@@ -77,6 +81,11 @@
 			<!-- load single Product -->
 			<c:if test="${userClickShowProduct == true}">
 				<%@include file="singleProduct.jsp"%>
+			</c:if>
+			
+			<!-- load Manage product -->
+			<c:if test="${userClickManageProducts == true}">
+				<%@include file="manageProduct.jsp"%>
 			</c:if>
 
 
