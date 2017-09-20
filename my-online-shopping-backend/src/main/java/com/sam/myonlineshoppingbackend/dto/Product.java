@@ -46,7 +46,7 @@ public class Product {
 	private int views;
 	
 	@Transient
-	private MultipartFile file;	 
+	private MultipartFile file;	
 	
 	public Product() {
 		this.code = "PRD" + UUID.randomUUID().toString().substring(26).toUpperCase(); 
@@ -152,7 +152,13 @@ public class Product {
 
 	
 	
+	public MultipartFile getFile() {
+		return file;
+	}
 
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	@Override
 	public String toString() {

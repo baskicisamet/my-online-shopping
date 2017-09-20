@@ -2,6 +2,7 @@ package com.sam.myonlineshopping.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sam.myonlineshopping.util.FileUploadUtility;
+import com.sam.myonlineshopping.validator.ProductValidator;
 import com.sam.myonlineshoppingbackend.dao.CategoryDAO;
 import com.sam.myonlineshoppingbackend.dao.ProductDAO;
 import com.sam.myonlineshoppingbackend.dto.Category;
@@ -67,7 +70,9 @@ public class ManagementController {
 	 
 	 //handling  product submisson
 	 @RequestMapping(value="/products", method=RequestMethod.POST)
-	 public String  handleProductSubmisson(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model) {
+	 public String  handleProductSubmisson(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, HttpServletRequest request) {
+		 
+		 new ProductValidator().validate(mProduct, results);
 		 
 		 //check if there any errors while form bind to model
 		 if(results.hasErrors()) {
@@ -84,6 +89,10 @@ public class ManagementController {
 		 
 		  //create a new product record
 		 productDAO.add(mProduct);
+		 
+		  if(!mProduct.getFile().getOriginalFilename().equals("")) { //if there is a file
+			  FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());//why we are passing request is to get real path && why we are passing code because we are going to set it as image name
+		  }
 		 
 		 return "redirect:/manage/products?operation=product";
 	 }

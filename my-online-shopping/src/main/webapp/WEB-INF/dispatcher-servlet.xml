@@ -21,6 +21,10 @@
 		<property name="prefix" value="/WEB-INF/views/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+	<!-- id must be multiaprtResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+	
+		
 	
 	
 	

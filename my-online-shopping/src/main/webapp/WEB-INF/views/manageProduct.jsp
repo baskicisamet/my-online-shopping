@@ -30,7 +30,7 @@
 					<div class="container " style="margin-top:10px">
 					
 					<!-- FORM ELEMENTS -->
-					<sf:form class="form-horizontal col-md-12 justify-content-md-center" modelAttribute="product" action="${contextRoot}/manage/products" method="POST">
+					<sf:form class="form-horizontal col-md-12 justify-content-md-center" modelAttribute="product" action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
 					
 					
 						<div class="form-group row col-md-offset-2 ">
@@ -78,7 +78,7 @@
 							
 							<div class="col-md-9">
 								<sf:input type="number" path="unitPrice" id="unitPrice" placeholder="Unit Price In &#8377;" class="form-control" />
-								<sf:errors path="unitPrice" cs sClass="help-block" element="em"  />
+								<sf:errors path="unitPrice" cssClass="help-block" element="em"  />
 							</div>
 							
 						</div>
@@ -92,7 +92,17 @@
 							</div>
 							
 						</div>
+						<!-- File  element for image upload-->
+						<div class="form-group row col-md-offset-2">
 						
+							<label class="col-form-label col-md-3" for="file"> Select and Image  </label>
+							
+							<div class="col-md-9">
+								<sf:input type="file" path="file" id="file"  class="form-control" />
+								<sf:errors path="file" cssClass="help-block" element="em"  />
+							</div>
+							
+						</div>
 						
 						
 						<div class="form-group row col-md-offset-2">
@@ -147,4 +157,9 @@
 			</div>
 		</div>
 	</div>
+
+
+	
+
+
 </div>
