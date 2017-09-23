@@ -33,8 +33,7 @@ public class Product {
 	@Min(value=1,message="The price cannot be less then 1!")
 	private double unitPrice;
 	private int quantity;
-	@Column(name= "is_active")
-	@JsonIgnore 
+	@Column(name= "is_active") 
 	private boolean active;
 	@Column(name="category_id")
 	@JsonIgnore 

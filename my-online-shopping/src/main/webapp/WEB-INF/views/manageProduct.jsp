@@ -1,13 +1,14 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
-<div class="conteiner">
+<div class="container">
+
 	<div class="row justify-content-md-center" >
 	
 	
 		<c:if test="${not empty message}">
 		
 			<div class="row col-lg-12 justify-content-md-center ">
-				<div class="col-xs-12 col-lg-6">
+				<div class="col-xs-12 col-lg-10">
 					
 					<div class="alert alert-success alert-dismissible">
 					
@@ -20,7 +21,7 @@
 			</div>
 		</c:if>
 	
-		<div class="col-md-offset-4 col-md-6 ">
+		<div class=" col-md-12 ">
 			<div class="card card-primary">
 				<div class="card-header">
 					<h4>Product Management</h4>
@@ -159,7 +160,63 @@
 	</div>
 
 
-	
 
+
+
+
+
+	<div class="row" style="margin-top:30px">
+	
+		<div class="col-xs-12 col-lg-12">
+			<h3>Available Products</h3>
+			<hr/>
+		
+		</div>
+		
+		<div class="col-xs-12 col-lg-12">
+			<div style="overflow:auto">
+			
+				<!--  Product Table for admin -->
+				<table id="adminProductsTable" class="table table-condensed table-bordered">
+							
+				<thead>					
+					<tr>					
+						<th>Id</th>
+						<th>&#160;</th>
+						<th>Name</th>
+						<th>brand</th>
+						<th>Qty. Avail</th>
+						<th>Unit Price</th>
+						<th>Activate</th>				
+						<th>Edit</th>
+					</tr>					
+				</thead>
+				
+				
+				
+				<tfoot>
+					<tr>					
+						<th>Id</th>
+						<th>&#160;</th>
+						<th>Name</th>
+						<th>brand </th>
+						<th>Qty. Avail</th>
+						<th>Unit Price</th>
+						<th>Activate</th>				
+						<th>Edit</th>
+					</tr>									
+				</tfoot>
+				
+							
+			</table>
+			
+			</div>
+		
+		
+		</div>
+	
+	
+	</div>
+	
 
 </div>
