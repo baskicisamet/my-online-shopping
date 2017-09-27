@@ -301,13 +301,18 @@ $(function(){
 						callback: function(confirmed){
 							
 							if(confirmed){// if user ok for changing
-								
 								console.log(value);
-								bootbox.alert({
-									size: 'medium',
-									title: 'information',
-									message: 'you are going to perform operation on product' + value
-								}); 
+								
+								var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
+								
+								$.post(activationUrl, function(data){
+									bootbox.alert({
+										size: 'medium',
+										title: 'Information',
+										message: data
+									});
+								})
+								 
 								
 								
 							}else{
