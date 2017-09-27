@@ -70,11 +70,48 @@ public class ManagementController {
 	 
 	 
 	 
+	 
+	 
+	 
+	 
+	 @RequestMapping(value="/{id}/product",method=RequestMethod.GET)
+	 public ModelAndView showEditProduct(@PathVariable int id ) {
+		 
+		 ModelAndView mv = new ModelAndView("page");
+		 
+		 mv.addObject("userClickManageProducts", true);
+		 mv.addObject("title","Manage Products");  
+		 
+		 //fetch  the product from db 
+		 Product nProduct = productDAO.get(id);
+		 
+		 mv.addObject("product",nProduct);
+		 
+		 
+		  
+		
+		 
+		 
+		 return mv;
+	 }
+	 
+	 
+	 
 	 //handling  product submisson
 	 @RequestMapping(value="/products", method=RequestMethod.POST)
 	 public String  handleProductSubmisson(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model, HttpServletRequest request) {
 		 
-		 new ProductValidator().validate(mProduct, results);
+		 
+		 
+		 //handle image validation for new product
+		 if(mProduct.getId() == 0) {
+			 new ProductValidator().validate(mProduct, results);
+		 }else {
+			 if(!mProduct.getFile().getOriginalFilename().equals("")) { //it will work when select a new image for update 
+				 new ProductValidator().validate(mProduct, results);
+			 }
+		 }
+		
 		 
 		 //check if there any errors while form bind to model
 		 if(results.hasErrors()) {
@@ -89,8 +126,17 @@ public class ManagementController {
 		 
 		 logger.info(mProduct.toString());
 		 
-		  //create a new product record
-		 productDAO.add(mProduct);
+		 //when id = 0 is new product so we will add it
+		 if(mProduct.getId() == 0) {
+			 //create a new product record
+			 productDAO.add(mProduct);
+		 }else {
+			 //Update the product if id is not 0
+			 productDAO.update(mProduct);
+		 }
+		 
+		 
+		 
 		 
 		  if(!mProduct.getFile().getOriginalFilename().equals("")) { //if there is a file
 			  FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());//why we are passing request is to get real path && why we are passing code because we are going to set it as image name
@@ -104,7 +150,7 @@ public class ManagementController {
 	 
 	 @RequestMapping(value="/product/{id}/activation",method=RequestMethod.POST)
 	 @ResponseBody
-	 public String handleProductActivation(@PathVariable("id") int id) {
+	 public String handleProductActivation(@PathVariable("id") int id) { 
 		 
 		 Product product = productDAO.get(id);
 		 boolean isActive = product.isActive();

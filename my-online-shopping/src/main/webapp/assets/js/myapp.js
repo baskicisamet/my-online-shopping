@@ -273,7 +273,7 @@ $(function(){
 						
 						var str = '';
 						
-						str += '<a href="${contextRoot}/manage/'+data+'/product" class="btn btn-warning">';
+						str += '<a href="'+window.contextRoot+'/manage/'+data+'/product" class="btn btn-warning">';
 						str += '<i class="fa fa-pencil" aria-hidden="true"></i></a>';
 						
 						return str;	 
@@ -305,7 +305,7 @@ $(function(){
 								
 								var activationUrl = window.contextRoot + '/manage/product/' + value + '/activation';
 								
-								$.post(activationUrl, function(data){
+								$.post(activationUrl, function(data){//this data has return from controller.
 									bootbox.alert({
 										size: 'medium',
 										title: 'Information',
