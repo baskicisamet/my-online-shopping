@@ -1,5 +1,7 @@
 package com.sam.myonlineshoppingbackend.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -44,10 +46,10 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public boolean addCart(Cart cart) {
+	public boolean updateCart(Cart cart) {
 		
 		try {
-			SessionFactory.getCurrentSession().persist(cart);
+			SessionFactory.getCurrentSession().update(cart);
 			return true;
 		}catch(Exception ex) {
 			ex.printStackTrace();
@@ -55,5 +57,67 @@ public class UserDAOImpl implements UserDAO{
 		}
 		
 	}
+
+	@Override
+	public User getByEmail(String email) {
+		
+		String query = "FROM User WHERE email = :email";
+		
+		try {
+			
+			return (User) SessionFactory.getCurrentSession()
+					.createQuery(query,User.class)
+					.setParameter("email", email)
+					.getSingleResult();
+			
+		}catch (Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+		
+		
+	}
+
+	@Override
+	public Address getBillingAddress(User user) {
+		
+		String query = "FROM Address WHERE user =:user AND billing = :billing";
+		
+		try {
+			
+			return (Address) SessionFactory.getCurrentSession()
+					.createQuery(query,Address.class)
+					.setParameter("user",user)
+					.setParameter("billing",true)
+					.getSingleResult();
+			 
+			
+		}catch (Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+		
+		
+	}
+
+	@Override
+	public List<Address> listShippingAddresses(User user) {
+				
+		String query = "FROM Address WHERE user =:user AND shipping = :shipping";
+				
+				try {
+					
+					return  (List<Address>) SessionFactory.getCurrentSession()
+							.createQuery(query,Address.class)
+							.setParameter("user",user)
+							.setParameter("shipping",true)
+							.getResultList();
+					 
+					
+				}catch (Exception ex) {
+					ex.printStackTrace();
+					return null;
+				}
+			}
 
 }
