@@ -105,7 +105,7 @@
 								<label class="col-form-label col-md-3" for="password">Password : </label>
 
 								<div class="col-md-9">
-									<sf:input type="text" path="password" id="password"
+									<sf:input type="password" path="password" id="password" 
 										placeholder="password" class="form-control" />
 									<sf:errors path="password" cssClass="help-block" element="em" />
 								</div>
