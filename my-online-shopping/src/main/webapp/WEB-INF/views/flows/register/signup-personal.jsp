@@ -112,6 +112,19 @@
 
 							</div>
 							
+							
+							<div class="form-group row col-md-offset-2">
+
+								<label class="col-form-label col-md-3" for="confirmPassword"> Confirm Password : </label>
+
+								<div class="col-md-9">
+									<sf:input type="confirmPassword" path="confirmPassword" id="confirmPassword" 
+										placeholder="confirmPassword" class="form-control" />
+									<sf:errors path="confirmPassword" cssClass="help-block" element="em" />
+								</div>
+
+							</div>
+							
 
 
 
