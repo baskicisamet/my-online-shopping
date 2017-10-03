@@ -382,4 +382,60 @@ $(function(){
 	//----------------------------------------------------------------------------
 	
 	
+	
+	//---------------------------------
+	// Validation code for login form
+	//-----------------------------------
+	
+	var $loginForm = $('#loginForm');
+	
+	if($loginForm.length){//it will work if there is that form on master page 
+		
+		
+		$loginForm.validate({
+			
+			rules : {
+				
+				username : {
+					
+					required:true,
+					email:true
+					
+					
+				},
+				password:{
+					required: true,
+					minlength: 6
+				}
+			},
+			
+			messages : {
+				
+				username : {
+					required: 'Please add the category name!',
+					minlength: 'The category name should not be less than 2 characters'
+				},
+				password : {
+					required: 'Please add a description for this category!'
+					
+				}
+				
+			},
+			errorElement: 'em',
+			errorPlacement: function(error, element){
+				//add the class of help-block
+				error.addClass('help-block');
+				//add the error element after the input element
+				error.insertAfter(element);
+			 
+			}
+
+		});
+		
+	}
+	
+	//-------------------------------------------------
+	
+	
+	
 });
