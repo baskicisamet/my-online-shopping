@@ -14,10 +14,11 @@
 <head>
 
 	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	
+	
 	
 	<title>Online shopping - ${title}</title>
 
@@ -79,7 +80,7 @@
 						<div class="row col-lg-12 justify-content-md-center ">
 							<div class="col-xs-12 col-lg-10">
 								
-								<div class="alert alert-success alert-dismissible">
+								<div class="alert alert-danger alert-dismissible">
 								
 								 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 								 	
@@ -93,7 +94,7 @@
 					<div class=" col-md-6 ">
 						<div class="card card-primary">
 							<div class="card-header">
-								<h4>Product Management</h4>
+								<h4>Login</h4>
 							</div>
 							<div class="card-body">
 								
@@ -132,7 +133,8 @@
 										
 										<div class="col-md-5 col-md-offset-5">
 											<input type="submit" value="login"   id="submit" placeholder="Submit" class="btn btn-primary " />
-										</div>
+											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+ 										</div>
 									</div>
 									
 									

@@ -158,9 +158,14 @@ public class PageController {
 	
 	/*Login*/
 	@RequestMapping(value = {"/login"})
-	public ModelAndView login() {
+	public ModelAndView login(@RequestParam(name="error",required =false)String error) {
 		
 		ModelAndView mv = new ModelAndView("login");
+		
+		if(error != null) {
+			mv.addObject("message","Invalid Username and Passwrod");
+		}
+		
 		mv.addObject("title","Login");
 		
 		return mv;
