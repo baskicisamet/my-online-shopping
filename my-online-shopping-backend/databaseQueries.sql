@@ -14,7 +14,7 @@ CREATE TABLE user_detail (
 	last_name VARCHAR(50),
 	role VARCHAR(50),
 	enabled BOOLEAN,
-	password VARCHAR(50),
+	password VARCHAR(60),
 	email VARCHAR(100),
 	contact_number VARCHAR(15),	
 	CONSTRAINT pk_user_id PRIMARY KEY(id)
@@ -72,10 +72,10 @@ INSERT INTO category (name, description,image_url,is_active) VALUES ('Mobile', '
 -- adding three users 
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Virat', 'Kohli', 'ADMIN', true, 'admin', 'vk@gmail.com', '8888888888');
+VALUES ('Virat', 'Kohli', 'ADMIN', true, '$2a$06$Rt1UGLajqHw2SOD1YADeI./R3unrdF.7DhORDMpQOp/IW3SrwNKgu', 'vk@gmail.com', '8888888888');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
-VALUES ('Ravindra', 'Jadeja', 'SUPPLIER', true, '12345', 'rj@gmail.com', '9999999999');
+VALUES ('Ravindra', 'Jadeja', 'SUPPLIER', true, '$2a$06$JjdT8AKrHLY1NyBG3I6a3uzmmE9K41No.tOMhavjdbS3Dc.C.nHj6', 'rj@gmail.com', '9999999999');
 INSERT INTO user_detail 
 (first_name, last_name, role, enabled, password, email, contact_number) 
 VALUES ('Ravichandra', 'Ashwin', 'SUPPLIER', true, '12345', 'ra@gmail.com', '7777777777');
