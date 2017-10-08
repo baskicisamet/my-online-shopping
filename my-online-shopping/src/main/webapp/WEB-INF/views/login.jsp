@@ -90,6 +90,22 @@
 							</div> 
 						</div>
 					</c:if>
+					
+					<c:if test="${not empty logout}">
+					
+						<div class="row col-lg-12 justify-content-md-center ">
+							<div class="col-xs-12 col-lg-10">
+								
+								<div class="alert alert-success alert-dismissible">
+								
+								 	<button type="button" class="close" data-dismiss="alert">&times;</button>
+								 	
+								 	${logout}
+								
+								</div>
+							</div> 
+						</div>
+					</c:if>
 				
 					<div class=" col-md-6 ">
 						<div class="card card-primary">
