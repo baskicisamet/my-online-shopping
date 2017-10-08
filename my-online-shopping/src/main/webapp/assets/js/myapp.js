@@ -115,7 +115,15 @@ $(function(){
 						if(row.quantity < 1){
 							str += '<a href="javascript:void(0)" class="btn btn-success disabled"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>'; 
 						}else{
-							str += '<a href="' + window.contextRoot+ '/cart/add/' + data + '/product" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>';  
+							
+							if(window.userRole == 'ADMIN'){
+								str += '<a href="' + window.contextRoot+ '/manage/' + data + '/product" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+					
+							}else{
+								str += '<a href="' + window.contextRoot+ '/cart/add/' + data + '/product" class="btn btn-success"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>';
+							}
+							
+							  
 							 
 						}
 						
