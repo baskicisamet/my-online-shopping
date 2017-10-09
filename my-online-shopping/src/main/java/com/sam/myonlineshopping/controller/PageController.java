@@ -199,21 +199,6 @@ public class PageController {
 	
 	
 
-	@RequestMapping(value= {"/test"})
-	public ModelAndView test(@RequestParam(value="greeting",required=false) String greetingMessage) {
-		
-		if(greetingMessage == null) {
-			greetingMessage = "yoo yoo guys";
-		}
-		
-		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("title","home");
-		mv.addObject("userClickHome",true);
-		
-	
-		
-		return mv;
-	}
 	
 	
 	/*Logout*/

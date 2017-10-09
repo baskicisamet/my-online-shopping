@@ -244,3 +244,7 @@ input:checked + .slider:before {
 		background:url(../images/pre-loader.gif) 50% no-repeat #fff
 }
 
+.table-responsive{ 
+	overflow-x: auto;
+}
+

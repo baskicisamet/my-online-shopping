@@ -180,9 +180,12 @@
 		</div>
 		
 		<div class="col-xs-12 col-lg-12">
-			<div style="overflow:auto">
+		
+			<div class="conteiner-fluid">
 			
-				<!--  Product Table for admin -->
+				<div class="table-responsive">
+				
+					<!--  Product Table for admin -->
 				<table id="adminProductsTable" class="table table-condensed table-bordered">
 							
 				<thead>					
@@ -215,8 +218,12 @@
 				
 							
 			</table>
-			
+				</div>
 			</div>
+			
+				
+			
+			
 		
 		
 		</div>
