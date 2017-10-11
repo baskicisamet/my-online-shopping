@@ -51,7 +51,7 @@
 				
 				<security:authorize access="isAuthenticated()">
 				
-					<li class="dropdown">
+					<li class="dropdown" id="userCart">
 						<a href="javascript:void(0)" class="btn  btn-default dropdown-toggle" id="dropwoenMenu1" data-toggle="dropdown">
 							${userModel.fullName}
 							<span class="caret"></span>
@@ -60,7 +60,7 @@
 							<security:authorize access="hasAuthority('USER')">
 							
 								<li>
-									<a href="${contextRoot}/cart">
+									<a href="${contextRoot}/cart/show">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span class="badge">${userModel.cart.cartLines}</span>
 										- &#8377; ${userModel.cart.grandTotal}

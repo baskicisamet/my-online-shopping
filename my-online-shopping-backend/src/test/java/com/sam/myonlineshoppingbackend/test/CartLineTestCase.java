@@ -65,7 +65,7 @@ public class CartLineTestCase {
 		assertEquals("Failed to Add the cartLine",true,cartLineDAO.add(cartLine));
 		
 		//update the cart 
-		cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
+		cart.setGrandTotal(cartLine.getProductCount() * cartLine.getTotal());
 		cart.setCartLines(cart.getCartLines() + 1);
 		
 		assertEquals("Failed to update the cart ",true,cartLineDAO.updateCart(cart));
