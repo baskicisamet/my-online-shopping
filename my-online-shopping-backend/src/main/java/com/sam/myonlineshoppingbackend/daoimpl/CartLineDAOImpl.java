@@ -55,7 +55,7 @@ public class CartLineDAOImpl implements CartLineDAO {
 	public boolean delete(CartLine cartLine) {
 		
 		try {
-			sessionFactory.getCurrentSession().update(cartLine);
+			sessionFactory.getCurrentSession().delete(cartLine);
 			return true;
 		}
 		catch(Exception ex) {
